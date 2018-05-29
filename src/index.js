@@ -141,3 +141,15 @@ class Toc{
 		}
 	}
 }
+
+if ( typeof module === "object" && typeof module.exports === "object" ) {
+	module.exports = Toc;
+}
+
+if ( typeof window.define === "function" /*&& window.define.amd*/ ) {
+	define( "toc", [], function() {
+		return Toc;
+	} );
+}else{
+	window.Toc = Toc;
+}

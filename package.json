@@ -1,0 +1,33 @@
+{
+  "name": "auto-toc-js",
+  "version": "1.0.0",
+  "description": "自动搜索网页中的标题，生成具有层次结构的文章目录",
+  "main": "dist/toc.min.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wanls4583/auto-toc-js.git"
+  },
+  "keywords": [
+    "toc",
+    "auto-toc",
+    "plugin"
+  ],
+  "author": "lisong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wanls4583/auto-toc-js/issues"
+  },
+  "homepage": "https://github.com/wanls4583/auto-toc-js#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.18",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "webpack": "^3.12.0"
+  }
+}

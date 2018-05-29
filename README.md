@@ -1,5 +1,5 @@
-# vue-infinite-auto-scroll
-> 基于vue.js的无缝自动滚动的插件，可添加无限数据而不卡顿
+# auto-toc-js
+> 自动搜索网页中的标题，生成具有层次结构的文章目录的js插件
 
 ## 内容
 
@@ -19,7 +19,7 @@
 | IE9+ | &check;| &check; | &check; | &check; | &check; | &check;
 
 ## 功能特性
-* [x] 
+* [x] 使用简单，引入JavaScript文件即可
 * [x] 配置灵活
 * [x] 持续维护迭代
 
@@ -28,7 +28,7 @@
 ### NPM
 
 ```bash
-npm install auto-toc
+npm install auto-toc-js
 ```
 
 ### CDN
@@ -51,7 +51,7 @@ npm install auto-toc
 ```
 
 ## 案例
-请查看[**`example`**](https://github.com/wanls4583/auto-toc-js/example)
+请查看[**`example`**](https://github.com/wanls4583/auto-toc-js/tree/master/example)
 
 ## 配置项
 |key|description|default|val|
@@ -63,7 +63,7 @@ npm install auto-toc
 
 ## 个别特殊配置项说明
 
-> 1.目录样式需要自行添加，可参考[**`示例`**](https://github.com/wanls4583/auto-toc-js/example)中的样式代码。
+> 1.目录样式需要自行添加，可参考[**`示例`**](https://github.com/wanls4583/auto-toc-js/tree/master/example)中的样式代码。
 
 
 ## 历史版本

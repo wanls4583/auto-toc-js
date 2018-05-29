@@ -4,13 +4,24 @@
 class Toc{
 	/**
 	 * 初始化
-	 * @param  {string} wrapperId 需要生成目录的容器id
+	 * @param  {object} options {
+	 *   wrapperId: 需要生成toc目录的容器id
+	 *   insertId: 位置id，toc目录面板将插入在此id代表的元素的前面
+	 *   showSerial： 是否显示目录序号
+	 * }
 	 */
 	constructor(options) {
 		if(options.wrapperId){
 			this.container = document.getElementById(options.wrapperId);
 		}else{
 			this.container = document.body;
+		}
+		if(options.insertId){
+			this.insertDom = document.getElementById(options.insertId);
+		}else if(this.container!=document.body){
+			this.insertDom = this.container;
+		}else{
+			this.insertDom = this.container.firstElementChild;
 		}
 		this.showSerial = options.showSerial || false;
 		this.childH = []; //初始标题数组
@@ -75,13 +86,27 @@ class Toc{
 		this.getAllH();
 		this.createItemChain(this.childH,0);
 
-		let toc = document.createElement('div');
-		toc.setAttribute("class", "toc_root");
-		toc.setAttribute("id", "toc");
+		if(!this.childH.length){
+			return;
+		}
+		
+		let tocWrap = document.createElement('div');
+		tocWrap.setAttribute("class", "toc_wrap");
+		tocWrap.setAttribute("id", "toc_wrap");
 
-		_createToc(toc,this.childH,1,'');
+		tocWrap.innerHTML = '<div class="toc_root" id="toc"><a class="hide_toc_btn">[hide]</a></div><a class="show_toc_btn">[显示目录]</a>';
 
-		document.body.appendChild(toc);
+		this.insertDom.parentNode.insertBefore(tocWrap,this.insertDom);
+
+		tocWrap.getElementsByClassName('hide_toc_btn')[0].addEventListener('click',function(){
+			tocWrap.className = tocWrap.className+' hide';
+		});
+
+		tocWrap.getElementsByClassName('show_toc_btn')[0].addEventListener('click',function(){
+			tocWrap.className = 'toc_wrap';
+		});
+
+		_createToc(document.getElementById('toc'),this.childH,1,'');
 		/**
 		 * 递推创建dom
 		 * @param  {DOM} dom     [父元素]
@@ -116,8 +141,3 @@ class Toc{
 		}
 	}
 }
-
-new Toc({
-	wrapperId: 'wrap',
-	showSerial: true
-}).createToc()
